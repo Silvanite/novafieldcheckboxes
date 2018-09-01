@@ -1,5 +1,5 @@
 {
-    "name": "silvanite/nova-field-checkboxes",
+    "name": "silvanite/novafieldcheckboxes",
     "description": "A Laravel Nova field to display a number of multi-select options using checkboxes.",
     "keywords": [
         "laravel",

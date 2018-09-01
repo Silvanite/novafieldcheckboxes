@@ -12,7 +12,7 @@ class Checkboxes extends Field
      *
      * @var string
      */
-    public $component = 'nova-field-checkboxes';
+    public $component = 'novafieldcheckboxes';
 
     /**
      * Specify the available options
