@@ -41,7 +41,6 @@ class Checkboxes extends Field
              * When editing entries, they are returned as comma seperated string (unsure why).
              * As a result we need to include this check and explode the values if required.
              */
-            clock($request[$requestAttribute]);
             if (!is_array($choices = $request[$requestAttribute])) {
                 $choices = explode(',', $choices);
             }
