@@ -1,0 +1,35 @@
+{
+    "name": "silvanite/nova-field-checkboxes",
+    "description": "A Laravel Nova field to display a number of multi-select options using checkboxes.",
+    "keywords": [
+        "laravel",
+        "nova",
+        "input",
+        "field",
+        "checkbox",
+        "checkboxes",
+        "multiselect",
+        "multiple choice"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Silvanite\\NovaFieldCheckboxes\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Silvanite\\NovaFieldCheckboxes\\FieldServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
