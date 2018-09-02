@@ -42,10 +42,32 @@ class Checkboxes extends Field
              * As a result we need to include this check and explode the values if required.
              */
             if (!is_array($choices = $request[$requestAttribute])) {
-                $choices = explode(',', $choices);
+                $choices = collect(explode(',', $choices))->map(function ($choice) {
+                    return $this->castValueToType($choice);
+                });
             }
 
             $model->{$attribute} = $choices;
         }
+    }
+
+    /**
+     * Because we are having to explode the string value returned from Nova/Vue, we assume that any
+     * numeric value should be returned as such, instead of a string.
+     *
+     * @param  mixed  $value
+     * @return mixed
+     */
+    private function castValueToType($value)
+    {
+        if (ctype_digit($value)) {
+            return intval($value);
+        }
+
+        if (is_numeric($value)) {
+            return floatval($value);
+        }
+
+        return $value;
     }
 }
