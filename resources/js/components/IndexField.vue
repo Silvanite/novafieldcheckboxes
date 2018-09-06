@@ -23,8 +23,8 @@ export default {
     methods: {
         optionClass(option) {
             return {
-                'bg-success': this.field.value.includes(option),
-                'bg-danger': !this.field.value.includes(option),
+                'bg-success': this.field.value ? this.field.value.includes(option) : false,
+                'bg-danger': this.field.value ? !this.field.value.includes(option) : true,
             }
         },
     },

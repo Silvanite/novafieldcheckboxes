@@ -37,7 +37,7 @@ export default {
 
     methods: {
         isChecked(option) {
-            return this.value.includes(option)
+            return this.value ? this.value.includes(option) : false
         },
 
         toggleOption(option) {
