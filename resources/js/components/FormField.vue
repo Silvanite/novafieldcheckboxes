@@ -1,11 +1,11 @@
 <template>
     <default-field :field="field">
         <template slot="field">
-            <div class="flex flex-wrap w-full">
+            <div class="w-full max-col-3">
                 <div
                     v-for="(label, option) in field.options"
                     :key="option"
-                    class="flex w-1/2 lg:w-1/3 mb-2"
+                    class="flex mb-2"
                 >
                     <checkbox
                         :value="option"
@@ -17,6 +17,7 @@
                         :for="field.name"
                         v-text="label"
                         @click="toggleOption(option)"
+                        class="w-full"
                     ></label>
                 </div>
             </div>
@@ -73,3 +74,11 @@ export default {
     }
 }
 </script>
+
+<style>
+    .max-col-3 {
+        -moz-column-count: 3;
+        -webkit-column-count: 3;
+        column-count: 3;
+    }
+</style>

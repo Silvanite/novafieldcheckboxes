@@ -1,11 +1,11 @@
 <template>
     <panel-item :field="field">
-        <p slot="value" class="text-90">
-            <span class="flex flex-wrap w-full">
+        <p slot="value" class="text-90 flex">
+            <span class="w-full max-col-3">
                 <div
                     v-for="(label, option) in field.options"
                     :key="option"
-                    class="w-1/3"
+                    class="flex-auto"
                 >
                     <span
                         class="inline-block rounded-full w-2 h-2 mr-1"
@@ -32,3 +32,12 @@ export default {
     },
 }
 </script>
+
+<style>
+    .max-col-3 {
+        -moz-column-count: 3;
+        -webkit-column-count: 3;
+        column-count: 3;
+    }
+</style>
+
