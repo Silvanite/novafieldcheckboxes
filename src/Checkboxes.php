@@ -47,7 +47,7 @@ class Checkboxes extends Field
                 });
             }
 
-            $model->{$attribute} = $choices;
+            $model->{$attribute} = $choices->all();
         }
     }
 
