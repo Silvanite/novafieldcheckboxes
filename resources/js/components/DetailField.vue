@@ -9,7 +9,7 @@
                 >
                     <span
                         class="inline-block rounded-full w-2 h-2 mr-1"
-                        :class="{'bg-success': field.value.includes(option), 'bg-danger': !field.value.includes(option)}"
+                        :class="optionClass(option)"
                     />
                     <span>{{ label }}</span>
                 </div>
@@ -21,5 +21,14 @@
 <script>
 export default {
     props: ['resource', 'resourceName', 'resourceId', 'field'],
+
+    methods: {
+        optionClass(option) {
+            return {
+                'bg-success': this.field.value ? this.field.value.includes(option) : false,
+                'bg-danger': this.field.value ? !this.field.value.includes(option) : true,
+            }
+        },
+    },
 }
 </script>
