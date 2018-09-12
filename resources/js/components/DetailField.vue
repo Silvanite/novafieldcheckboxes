@@ -38,6 +38,7 @@ export default {
         -moz-column-count: 3;
         -webkit-column-count: 3;
         column-count: 3;
+        white-space: nowrap;
     }
 </style>
 
