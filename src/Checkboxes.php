@@ -44,10 +44,10 @@ class Checkboxes extends Field
             if (!is_array($choices = $request[$requestAttribute])) {
                 $choices = collect(explode(',', $choices))->map(function ($choice) {
                     return $this->castValueToType($choice);
-                });
+                })->all();
             }
 
-            $model->{$attribute} = $choices->all();
+            $model->{$attribute} = $choices;
         }
     }
 
