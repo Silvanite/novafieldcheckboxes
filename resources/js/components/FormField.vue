@@ -1,7 +1,7 @@
 <template>
     <default-field :field="field">
         <template slot="field">
-            <div class="w-full max-col-3">
+            <div class="w-full max-col-2">
                 <div
                     v-for="(label, option) in field.options"
                     :key="option"
@@ -80,6 +80,13 @@ export default {
         -moz-column-count: 3;
         -webkit-column-count: 3;
         column-count: 3;
+        white-space: nowrap;
+    }
+
+    .max-col-2 {
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+        column-count: 2;
         white-space: nowrap;
     }
 </style>
