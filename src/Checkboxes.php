@@ -18,7 +18,7 @@ class Checkboxes extends Field
      * Specify the available options
      *
      * @param array $options
-     * @return void
+     * @return self
      */
     public function options(array $options)
     {
