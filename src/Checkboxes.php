@@ -25,6 +25,20 @@ class Checkboxes extends Field
         return $this->withMeta(['options' => $options]);
     }
 
+    public function withoutTypeCasting()
+    {
+        return $this->withMeta(['withoutTypeCasting' => true]);
+    }
+
+    private function shouldNotTypeCasting()
+    {
+        return (
+            array_key_exists('withoutTypeCasting', $this->meta)
+            && $this->meta['withoutTypeCasting']
+        );
+    }
+
+
     /**
      * Hydrate the given attribute on the model based on the incoming request.
      *
@@ -43,7 +57,7 @@ class Checkboxes extends Field
              */
             if (!is_array($choices = $request[$requestAttribute])) {
                 $choices = collect(explode(',', $choices))->map(function ($choice) {
-                    return $this->castValueToType($choice);
+                    return ($this->shouldNotTypeCasting()) ? $choice : $this->castValueToType($choice);
                 })->filter()->all();
             }
 
