@@ -20,6 +20,35 @@ Checkboxes::make('Permissions')->options([
     'manageUsers' => 'Manage Users',
 ]),
 ```
+ 
+## Configuration
+you can customise how the values from checkbox fields are saved to your database .
+By default it's will saved as integer , you can save it as string by using `withoutTypeCasting()`
+
+```php
+use Silvanite\NovaFieldCheckboxes\Checkboxes;
+
+Checkboxes::make('Permissions')->options([
+    1 => 'Access Admin UI',
+    2 => 'Manage Users',
+]->withoutTypeCasting()),
+```
+
+#### Example using eloquent 
+you can pass eloquent collection for the options as
+
+```php
+use Silvanite\NovaFieldCheckboxes\Checkboxes;
+
+Checkboxes::make('users')
+    ->options(
+        collect(App\user::get())
+            ->mapWithKeys(function($user) {
+                return [$user->id => $user->name];
+            })
+        )
+    ->withoutTypeCasting(),
+```
 
 ## Support
 

@@ -30,7 +30,7 @@ class Checkboxes extends Field
         return $this->withMeta(['withoutTypeCasting' => true]);
     }
 
-    private function shouldNotTypeCasting()
+    private function shouldNotTypeCast()
     {
         return (
             array_key_exists('withoutTypeCasting', $this->meta)
@@ -57,7 +57,7 @@ class Checkboxes extends Field
              */
             if (!is_array($choices = $request[$requestAttribute])) {
                 $choices = collect(explode(',', $choices))->map(function ($choice) {
-                    return ($this->shouldNotTypeCasting()) ? $choice : $this->castValueToType($choice);
+                    return ($this->shouldNotTypeCast()) ? $choice : $this->castValueToType($choice);
                 })->filter()->all();
             }
 
