@@ -20,10 +20,10 @@ Checkboxes::make('Permissions')->options([
     'manageUsers' => 'Manage Users',
 ]),
 ```
- 
+
 ## Configuration
-you can customise how the values from checkbox fields are saved to your database .
-By default it's will saved as integer , you can save it as string by using `withoutTypeCasting()`
+
+You can customise how the values from checkbox fields are passed to your scripts. By default it's will cast all numeric keys to floats or integers, e.g. `[1, 2, 3]` instead of `["1", "2", "3"]`. You can save disable this feature by calling `withoutTypeCasting()` to have the original array keys returned unmodified.
 
 ```php
 use Silvanite\NovaFieldCheckboxes\Checkboxes;
@@ -34,15 +34,16 @@ Checkboxes::make('Permissions')->options([
 ]->withoutTypeCasting()),
 ```
 
-#### Example using eloquent 
-you can pass eloquent collection for the options as
+### Example using eloquent
+
+Here is an example of how you might use an eloquent model with Checkboxes.
 
 ```php
 use Silvanite\NovaFieldCheckboxes\Checkboxes;
 
 Checkboxes::make('users')
     ->options(
-        collect(App\user::get())
+        collect(App\User::get())
             ->mapWithKeys(function($user) {
                 return [$user->id => $user->name];
             })
