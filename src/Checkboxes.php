@@ -26,6 +26,25 @@ class Checkboxes extends Field
     }
 
     /**
+     * Disable type casting of array keys to numeric values to return the unmodified keys.
+     */
+    public function withoutTypeCasting()
+    {
+        return $this->withMeta(['withoutTypeCasting' => true]);
+    }
+
+    /**
+     * Determine if the array keys should be converted to numeric values.
+     */
+    private function shouldNotTypeCast()
+    {
+        return (
+            array_key_exists('withoutTypeCasting', $this->meta)
+            && $this->meta['withoutTypeCasting']
+        );
+    }
+
+    /**
      * Hydrate the given attribute on the model based on the incoming request.
      *
      * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
@@ -43,7 +62,7 @@ class Checkboxes extends Field
              */
             if (!is_array($choices = $request[$requestAttribute])) {
                 $choices = collect(explode(',', $choices))->map(function ($choice) {
-                    return $this->castValueToType($choice);
+                    return ($this->shouldNotTypeCast()) ? $choice : $this->castValueToType($choice);
                 })->filter()->all();
             }
 
