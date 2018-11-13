@@ -25,11 +25,17 @@ class Checkboxes extends Field
         return $this->withMeta(['options' => $options]);
     }
 
+    /**
+     * Disable type casting of array keys to numeric values to return the unmodified keys.
+     */
     public function withoutTypeCasting()
     {
         return $this->withMeta(['withoutTypeCasting' => true]);
     }
 
+    /**
+     * Determine if the array keys should be converted to numeric values.
+     */
     private function shouldNotTypeCast()
     {
         return (
@@ -37,7 +43,6 @@ class Checkboxes extends Field
             && $this->meta['withoutTypeCasting']
         );
     }
-
 
     /**
      * Hydrate the given attribute on the model based on the incoming request.
