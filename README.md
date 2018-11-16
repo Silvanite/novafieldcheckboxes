@@ -42,12 +42,7 @@ Here is an example of how you might use an eloquent model with Checkboxes.
 use Silvanite\NovaFieldCheckboxes\Checkboxes;
 
 Checkboxes::make('users')
-    ->options(
-        collect(App\User::get())
-            ->mapWithKeys(function($user) {
-                return [$user->id => $user->name];
-            })
-        )
+    ->options(App\User::pluck('name', 'id'))
     ->withoutTypeCasting(),
 ```
 
