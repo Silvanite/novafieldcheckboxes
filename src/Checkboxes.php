@@ -32,6 +32,14 @@ class Checkboxes extends Field
     {
         return $this->withMeta(['withoutTypeCasting' => true]);
     }
+    
+    /**
+     * check wether is child to add customize styles.
+     */
+    public function isChild()
+    {
+        return $this->withMeta(['isChild' => true]);
+    }
 
     /**
      * Determine if the array keys should be converted to numeric values.
