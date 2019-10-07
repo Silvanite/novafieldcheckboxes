@@ -5,7 +5,7 @@
                 <div
                     v-for="(label, option) in field.options"
                     :key="option"
-                    class="flex-auto"
+                    :class="isChild(field.isChild)"
                 >
                     <span
                         class="inline-block rounded-full w-2 h-2 mr-1"
@@ -27,6 +27,13 @@ export default {
             return {
                 'bg-success': this.field.value ? this.field.value.includes(option) : false,
                 'bg-danger': this.field.value ? !this.field.value.includes(option) : true,
+            }
+        },
+        
+        isChild(isChild) {
+            return {
+                'flex-auto ml-8': isChild ? true : false,
+                'flex-auto': !isChild ? true : false,
             }
         },
     },
