@@ -5,7 +5,7 @@
                 <div
                     v-for="(label, option) in field.options"
                     :key="option"
-                    class="flex mb-2"
+                    :class="isChild(field.isChild)"
                 >
                     <checkbox
                         :value="option"
@@ -17,7 +17,7 @@
                         :for="field.name"
                         v-text="label"
                         @click="toggleOption(option)"
-                        :class="isChild(field.isChild)"
+                        class="w-full"
                     ></label>
                 </div>
             </div>
@@ -42,7 +42,10 @@ export default {
         },
         
         isChild(isChild) {
-            return isChild ? 'w-full ml-8' : 'w-full' 
+            return {
+                'flex mb-2 ml-8': isChild ? true : false,
+                'flex mb-2': !isChild ? true : false,
+            }
         },
 
         toggleOption(option) {
