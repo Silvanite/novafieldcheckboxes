@@ -17,7 +17,7 @@
                         :for="field.name"
                         v-text="label"
                         @click="toggleOption(option)"
-                        class="w-full"
+                        :class="isChild(field.isChild)"
                     ></label>
                 </div>
             </div>
@@ -39,6 +39,10 @@ export default {
     methods: {
         isChecked(option) {
             return this.value ? this.value.includes(option) : false
+        },
+        
+        isChild(isChild) {
+            return isChild ? 'w-full ml-8' : 'w-full' 
         },
 
         toggleOption(option) {
