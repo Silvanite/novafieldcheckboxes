@@ -15,6 +15,26 @@ class Checkboxes extends Field
     public $component = 'novafieldcheckboxes';
 
     /**
+     * The meta data for the element.
+     *
+     * @var array
+     */
+    public $meta = [
+        'columns' => 2,
+    ];
+
+    /**
+     * Specify the number of columns.
+     *
+     * @param array $columns
+     * @return self
+     */
+    public function columns(int $columns)
+    {
+        return $this->withMeta(['columns' => $columns]);
+    }
+
+    /**
      * Specify the available options
      *
      * @param array $options

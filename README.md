@@ -34,6 +34,17 @@ Checkboxes::make('Permissions')->options([
 ]->withoutTypeCasting()),
 ```
 
+You can also customise the number of columns in which options will be displayed by calling `columns()`
+
+```php
+use Silvanite\NovaFieldCheckboxes\Checkboxes;
+
+Checkboxes::make('Permissions')->options([
+    1 => 'Access Admin UI',
+    2 => 'Manage Users',
+])->columns(4),
+```
+
 ### Example using eloquent
 
 Here is an example of how you might use an eloquent model with Checkboxes.
