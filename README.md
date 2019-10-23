@@ -31,7 +31,7 @@ use Silvanite\NovaFieldCheckboxes\Checkboxes;
 Checkboxes::make('Permissions')->options([
     1 => 'Access Admin UI',
     2 => 'Manage Users',
-]->withoutTypeCasting()),
+])->withoutTypeCasting(),
 ```
 
 You can also customise the number of columns in which options will be displayed by calling `columns()`
