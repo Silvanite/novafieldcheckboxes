@@ -14,7 +14,7 @@
                         :value="option"
                         :checked="isChecked(option)"
                         @input="toggleOption(option)"
-                        class="pr-2"
+                        class="mr-2"
                     />
                     <label
                         :for="field.name"
