@@ -83,7 +83,12 @@ class Checkboxes extends Field
             if (!is_array($choices = $request[$requestAttribute])) {
                 $choices = collect(explode(',', $choices))->map(function ($choice) {
                     return ($this->shouldNotTypeCast()) ? $choice : $this->castValueToType($choice);
-                })->filter()->all();
+                })->filter(function ($value) {
+                    /**
+                     * Filtering out "falsy" values but allowing for int value zero (0)
+                     */
+                    return $value === 0 ? true : $value;
+                })->all();
             }
 
             $model->{$attribute} = $choices;
