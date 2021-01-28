@@ -6,6 +6,10 @@
 
 ![Checkboxes in Laravel Nova](indexPreview.png)
 
+## Package maintenance
+
+Unfortunately I am no longer actively working in the Laravel ecosystem and as such am unable to maintian this package. If anyone would like to take over the maintenance of the package please get in touch (open an issue or contact me on [Twitter](https://twitter.com/m2de_io)).
+
 ## Installation
 
 `composer require silvanite/novafieldcheckboxes`
