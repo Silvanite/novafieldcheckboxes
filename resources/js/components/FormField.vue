@@ -8,7 +8,7 @@
                 <div
                     v-for="(label, option) in field.options"
                     :key="option"
-                    class="flex mb-2"
+                    :class="isChild(field.isChild)"
                 >
                     <checkbox
                         :value="option"
@@ -42,6 +42,13 @@ export default {
     methods: {
         isChecked(option) {
             return this.value ? this.value.includes(option) : false
+        },
+        
+        isChild(isChild) {
+            return {
+                'flex mb-2 ml-8': isChild ? true : false,
+                'flex mb-2': !isChild ? true : false,
+            }
         },
 
         toggleOption(option) {
