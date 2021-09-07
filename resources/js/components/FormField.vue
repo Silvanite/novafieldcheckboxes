@@ -39,6 +39,8 @@ export default {
 
     props: ['resourceName', 'resourceId', 'field'],
 
+    mounted(){ this.value = JSON.parse(this.value) },
+
     methods: {
         isChecked(option) {
             return this.value ? this.value.includes(option) : false
