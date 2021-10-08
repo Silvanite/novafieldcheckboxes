@@ -114,4 +114,12 @@ class Checkboxes extends Field
 
         return $value;
     }
+
+     /**
+     * Hide unchecked values
+     */
+    public function hideUncheckedValues($hideUncheckedValues = true)
+    {
+        return $this->withMeta(['hideUncheckedValues' => $hideUncheckedValues]);
+    }
 }

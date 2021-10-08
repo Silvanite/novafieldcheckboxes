@@ -9,6 +9,7 @@
                     v-for="(label, option) in field.options"
                     :key="option"
                     class="flex-auto"
+                    :class="optionVisible(option)"
                 >
                     <span
                         class="inline-block rounded-full w-2 h-2 mr-1"
@@ -32,6 +33,10 @@ export default {
                 'bg-danger': this.field.value ? !this.field.value.includes(option) : true,
             }
         },
+        optionVisible(option) {
+            if(this.field.hideUncheckedValues && !this.field.value.includes(option)) 
+                return 'hidden'
+        }
     },
 }
 </script>
