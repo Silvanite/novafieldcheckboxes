@@ -14,7 +14,7 @@
                         class="inline-block rounded-full w-2 h-2 mr-1"
                         :class="optionClass(option)"
                     />
-                    <span>{{ label }}</span>
+                    <span class="whitespace-normal">{{ label }}</span>
                 </div>
             </span>
         </p>
