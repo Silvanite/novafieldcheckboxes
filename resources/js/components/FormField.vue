@@ -20,7 +20,7 @@
                         :for="field.name"
                         v-text="label"
                         @click="toggleOption(option)"
-                        class="w-full leading-tight"
+                        class="w-full leading-tight whitespace-normal"
                     ></label>
                 </div>
             </div>
