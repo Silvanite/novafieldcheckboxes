@@ -1,9 +1,10 @@
-import Vue from 'vue'
 
-Vue.config.devtools = true
+import FormField from './components/FormField.vue';
+import IndexField from './components/IndexField.vue';
+import DetailField from './components/DetailField.vue';
 
 Nova.booting((Vue, router) => {
-    Vue.component('index-novafieldcheckboxes', require('./components/IndexField'));
-    Vue.component('detail-novafieldcheckboxes', require('./components/DetailField'));
-    Vue.component('form-novafieldcheckboxes', require('./components/FormField'));
-})
+    Vue.component('index-novafieldcheckboxes', IndexField);
+    Vue.component('detail-novafieldcheckboxes', DetailField);
+    Vue.component('form-novafieldcheckboxes', FormField);
+});

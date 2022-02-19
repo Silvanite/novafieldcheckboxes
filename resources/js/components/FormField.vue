@@ -1,9 +1,9 @@
 <template>
-    <default-field :field="field" full-width-content>
+    <default-field :field="field" :errors="errors" :show-help-text="showHelpText" full-width-content>
         <template slot="field">
             <div
                 :style="{columnCount: this.field.columns}"
-                class="w-full max-col-2"
+                class="w-full max-col-2 mb-4"
             >
                 <div
                     v-for="(label, option) in field.options"
@@ -24,9 +24,6 @@
                     ></label>
                 </div>
             </div>
-            <p v-if="hasError" class="my-2 text-danger">
-                {{ firstError }}
-            </p>
         </template>
     </default-field>
 </template>
@@ -46,12 +43,12 @@ export default {
 
         toggleOption(option) {
             if (this.isChecked(option)) {
-                this.$set(this, 'value', this.value.filter(item => item != option))
+                this.$set(this, 'value', this.value && this.value.filter(item => item != option))
 
                 return
             }
 
-            this.value.push(option)
+            this.value && this.value.push(option)
         },
 
         /*
