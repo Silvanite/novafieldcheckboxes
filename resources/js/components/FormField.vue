@@ -13,6 +13,7 @@
                     <checkbox
                         :value="option"
                         :checked="isChecked(option)"
+                        :disabled="isReadonly || isDisabled(option)"
                         @input="toggleOption(option)"
                         class="mr-2"
                     />
@@ -37,6 +38,11 @@ export default {
     props: ['resourceName', 'resourceId', 'field'],
 
     methods: {
+
+        isDisabled(option) {
+            return Array.isArray(this.field.disabled) ? this.field.disabled.includes(option) : false; 
+        },
+
         isChecked(option) {
             return this.value ? this.value.includes(option) : false
         },

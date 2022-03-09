@@ -46,6 +46,18 @@ class Checkboxes extends Field
     }
 
     /**
+     * Make options as readonly, specify an array with values of the target option key
+     *
+     * @param array $options
+     * @return self
+     */
+    public function disabled(array $options)
+    {
+        return $this->withMeta(['disabled' => $options]);
+    }
+
+
+    /**
      * Disable type casting of array keys to numeric values to return the unmodified keys.
      */
     public function withoutTypeCasting()
