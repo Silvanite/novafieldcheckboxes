@@ -7,3 +7,4 @@ mix.js('resources/js/field.js', 'dist/js')
             symlinks: false
         }
     })
+    .vue({ version: 2 })
