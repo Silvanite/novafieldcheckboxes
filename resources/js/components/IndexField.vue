@@ -1,11 +1,11 @@
 <template>
-    <span class="w-full">
+    <span class="w-full" style="max-width: 400px; display: flex; flex-wrap: wrap; gap: .25rem;">
         <span
             v-for="(value, option) in availableOptions"
             :key="option"
-            :class="optionClass(option)"
             :title="value"
-            class="inline-block rounded-full w-2 h-2 mr-1"
+            class="inline-block rounded-full w-2 h-2"
+            :style="optionStyle(option)"
         />
     </span>
 </template>
@@ -21,10 +21,9 @@ export default {
     },
 
     methods: {
-        optionClass(option) {
+        optionStyle(option) {
             return {
-                'bg-success': this.field.value ? this.field.value.includes(option) : false,
-                'bg-danger': this.field.value ? !this.field.value.includes(option) : true,
+                'background': this.field.value && this.field.value.includes(option) ? 'rgba(var(--colors-green-500),var(--tw-text-opacity))' : 'rgba(var(--colors-red-500),var(--tw-text-opacity))',
             }
         },
     },

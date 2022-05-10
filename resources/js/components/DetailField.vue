@@ -12,7 +12,7 @@
                 >
                     <span
                         class="inline-block rounded-full w-2 h-2 mr-1"
-                        :class="optionClass(option)"
+                        :style="optionStyle(option)"
                     />
                     <span>{{ label }}</span>
                 </div>
@@ -26,12 +26,11 @@ export default {
     props: ['resource', 'resourceName', 'resourceId', 'field'],
 
     methods: {
-        optionClass(option) {
-            return {
-                'bg-success': this.field.value ? this.field.value.includes(option) : false,
-                'bg-danger': this.field.value ? !this.field.value.includes(option) : true,
-            }
-        },
+      optionStyle(option) {
+          return {
+            'background': this.field.value && this.field.value.includes(option) ? 'rgba(var(--colors-green-500),var(--tw-text-opacity))' : 'rgba(var(--colors-red-500),var(--tw-text-opacity))',
+          }
+      },
     },
 }
 </script>

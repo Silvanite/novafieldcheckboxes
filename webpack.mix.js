@@ -1,9 +1,18 @@
-let mix = require('laravel-mix')
+const mix = require('laravel-mix')
+const path = require('path')
 
-mix.js('resources/js/field.js', 'dist/js')
-   .sass('resources/sass/field.scss', 'dist/css')
-    .webpackConfig({
-        resolve: {
-            symlinks: false
-        }
-    })
+require('./mix')
+
+mix
+  .setPublicPath("dist")
+  .js("resources/js/field.js", "js")
+  .sass('resources/sass/field.scss', 'dist/css')
+  .vue({ version: 3 })
+  .webpackConfig({
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, 'resources/js/'),
+      },
+    },
+  })
+  .nova("silvanite/novafieldcheckboxes");
