@@ -22,8 +22,9 @@ export default {
 
     methods: {
         optionStyle(option) {
+            const color  = this.field.value && this.field.value.includes(option) ? 'green' : 'red'
             return {
-                'background': this.field.value && this.field.value.includes(option) ? 'rgba(var(--colors-green-500),var(--tw-text-opacity))' : 'rgba(var(--colors-red-500),var(--tw-text-opacity))',
+                'background': `rgba(var(--colors-${color}-500),var(--tw-text-opacity))`
             }
         },
     },
