@@ -1,6 +1,6 @@
 <template>
     <default-field :field="field" full-width-content>
-        <template slot="field">
+        <template #field>
             <div
                 :style="{columnCount: this.field.columns}"
                 class="w-full max-col-2"
